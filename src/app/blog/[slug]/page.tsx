@@ -46,8 +46,6 @@ export default async function BlogDetailPage({ params }: Props) {
   const { slug } = await params;
   const post = blogs.find((b) => b.slug === slug);
   if (!post) notFound();
-  const mapped = articleKeywordMap[post.slug];
-  const seoHeadline = mapped ? `${mapped.titlePrefix}: ${post.title}` : post.title;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -82,7 +80,7 @@ export default async function BlogDetailPage({ params }: Props) {
             <span>·</span>
             <span>{post.date}</span>
           </div>
-          <h1 className="text-balance text-3xl font-bold leading-tight text-white md:text-5xl">{seoHeadline}</h1>
+          <h1 className="text-balance text-3xl font-bold leading-tight text-white md:text-5xl">{post.title}</h1>
         </div>
       </div>
 

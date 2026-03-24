@@ -3,6 +3,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/Button";
 import { courses } from "@/data/courses";
 import Image from "next/image";
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Learn Coding Online with Affordable Online Courses | Kampzo Learn',
@@ -50,6 +51,16 @@ export default function CoursesPage() {
               </CardFooter>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-14 rounded-2xl border border-gray-200 bg-white p-6 text-center shadow-sm md:p-8">
+          <h2 className="text-2xl font-bold text-dark">Need Help Choosing the Right Track?</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-gray-600">
+            Read our student-focused articles and roadmap content to decide what to learn first and how to stay consistent.
+          </p>
+          <Link href="/blog" className="mt-5 inline-flex items-center justify-center rounded-xl bg-dark px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-dark-soft">
+            Read our learning guides
+          </Link>
         </div>
       </div>
     </div>

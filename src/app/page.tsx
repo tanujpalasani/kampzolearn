@@ -61,7 +61,7 @@ export default function Home() {
             <Link href="/courses" className="ml-1 font-semibold text-primary hover:underline">Browse courses now</Link>.
           </p>
           <div className="mb-14 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4">
-            <Button href="/courses" size="lg" className="w-full sm:w-auto">Explore All Courses</Button>
+            <Button href="/courses" size="lg" className="w-full sm:w-auto">Browse Courses</Button>
             <Button href="/about" variant="outline" size="lg" className="border-gray-600 bg-transparent text-white hover:bg-white/10 hover:text-white">
               Learn More About Us
             </Button>
