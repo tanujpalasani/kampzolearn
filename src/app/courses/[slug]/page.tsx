@@ -4,6 +4,7 @@ import { courses } from '@/data/courses';
 import { Button } from '@/components/ui/Button';
 import { CheckCircle } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -18,10 +19,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const course = courses.find((c) => c.slug === slug);
   if (!course) return { title: 'Course Not Found' };
   return {
-    title: course.title,
-    description: course.shortDescription,
+    title: `Online Coding Course India | ${course.title}`,
+    description: `${course.shortDescription} Join this online coding course India learners trust to learn programming for beginners with project-based lessons.`,
     alternates: { canonical: `/courses/${course.slug}` },
-    openGraph: { title: course.title, description: course.shortDescription, type: 'website' },
+    openGraph: {
+      title: `Online Coding Course India | ${course.title}`,
+      description: `${course.shortDescription} Learn programming for beginners with Kampzo Learn.`,
+      type: 'website'
+    },
   };
 }
 
@@ -50,7 +55,7 @@ export default async function CourseDetailPage({ params }: Props) {
             <span>•</span>
             <span>{course.duration}</span>
           </div>
-          <h1 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">{course.title}</h1>
+          <h1 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">Online Coding Course India: {course.title}</h1>
           <p className="max-w-3xl text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl">{course.shortDescription}</p>
         </div>
       </section>
@@ -63,6 +68,14 @@ export default async function CourseDetailPage({ params }: Props) {
               <div className="surface-card p-6 md:p-8">
                 <h2 className="text-2xl font-bold text-dark mb-4">About this course</h2>
                 <p className="text-gray-600 leading-relaxed text-lg">{course.fullDescription}</p>
+                <p className="mt-4 text-gray-600 leading-relaxed">
+                  This path is built as an online coding course India students can follow step by step, especially for anyone who wants to learn programming for beginners without confusion.
+                </p>
+                <p className="mt-3 text-sm text-gray-500">
+                  Looking for practical learning strategies and career tips? Visit our
+                  <Link href="/blog" className="ml-1 font-semibold text-primary hover:underline">coding blog</Link>
+                  for actionable guidance.
+                </p>
               </div>
               <div className="surface-card p-6 md:p-8">
                 <h2 className="text-2xl font-bold text-dark mb-6">What you will learn</h2>
@@ -81,7 +94,7 @@ export default async function CourseDetailPage({ params }: Props) {
             <div className="lg:pl-8">
               <div className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-lg lg:sticky lg:top-24">
                 <div className="relative h-48 w-full">
-                  <Image src={course.image} alt={`${course.title} course cover`} fill className="object-cover" priority />
+                  <Image src={course.image} alt={`${course.title} online coding course India cover image`} fill className="object-cover" priority />
                 </div>
                 <div className="p-6">
                   <div className="text-3xl font-bold text-dark mb-6">{course.price}</div>

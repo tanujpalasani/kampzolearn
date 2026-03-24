@@ -29,7 +29,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-dark/90 text-white shadow-sm backdrop-blur-md">
       <div className="section-shell flex h-16 items-center justify-between md:h-18">
         <Link href="/" className="flex items-center gap-2.5 transition-opacity hover:opacity-90" onClick={() => setIsMobileOpen(false)}>
-          <Image src="/Logo.png" alt="Kampzo Learn Logo" width={36} height={36} className="object-contain" />
+          <Image src="/Logo.png" alt="Kampzo Learn logo for online learning platform India" width={36} height={36} className="object-contain" />
           <span className="text-lg md:text-xl font-bold tracking-tight">
             Kampzo <span className="text-primary">Learn</span>
           </span>

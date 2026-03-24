@@ -9,6 +9,17 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+const articleKeywordMap: Record<string, { titlePrefix: string; descriptionKeyword: string }> = {
+  "top-5-skills-students-should-learn-in-2026": {
+    titlePrefix: "Skills for Students 2026 and Future Skills India",
+    descriptionKeyword: "skills for students 2026"
+  },
+  "how-to-start-learning-coding-as-a-beginner": {
+    titlePrefix: "Learn Coding Online Beginner Coding Guide",
+    descriptionKeyword: "learn coding online"
+  }
+};
+
 export async function generateStaticParams() {
   return blogs.map((b) => ({ slug: b.slug }));
 }
@@ -17,11 +28,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = blogs.find((b) => b.slug === slug);
   if (!post) return { title: 'Post Not Found' };
+  const mapped = articleKeywordMap[post.slug];
+  const seoTitle = mapped ? `${mapped.titlePrefix} | ${post.title}` : post.title;
+  const seoDescription = mapped
+    ? `${post.preview} Read this guide on ${mapped.descriptionKeyword} with practical steps for students.`
+    : post.preview;
+
   return {
-    title: post.title,
-    description: post.preview,
+    title: seoTitle,
+    description: seoDescription,
     alternates: { canonical: `/blog/${post.slug}` },
-    openGraph: { title: post.title, description: post.preview, type: 'article', images: [{ url: post.image }] },
+    openGraph: { title: seoTitle, description: seoDescription, type: 'article', images: [{ url: post.image }] },
   };
 }
 
@@ -29,6 +46,8 @@ export default async function BlogDetailPage({ params }: Props) {
   const { slug } = await params;
   const post = blogs.find((b) => b.slug === slug);
   if (!post) notFound();
+  const mapped = articleKeywordMap[post.slug];
+  const seoHeadline = mapped ? `${mapped.titlePrefix}: ${post.title}` : post.title;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -53,7 +72,7 @@ export default async function BlogDetailPage({ params }: Props) {
 
       {/* Cover Image */}
       <div className="relative h-64 w-full overflow-hidden bg-dark md:h-96">
-        <Image src={post.image} alt={post.title} fill className="object-cover opacity-60" priority sizes="100vw" />
+        <Image src={post.image} alt={`${post.title} featured image with coding and student career guidance`} fill className="object-cover opacity-60" priority sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent" />
         <div className="section-shell absolute bottom-0 left-0 right-0 p-6 md:p-10">
           <div className="mb-3 flex flex-wrap items-center gap-2 text-xs text-gray-300 md:gap-3">
@@ -63,7 +82,7 @@ export default async function BlogDetailPage({ params }: Props) {
             <span>·</span>
             <span>{post.date}</span>
           </div>
-          <h1 className="text-balance text-3xl font-bold leading-tight text-white md:text-5xl">{post.title}</h1>
+          <h1 className="text-balance text-3xl font-bold leading-tight text-white md:text-5xl">{seoHeadline}</h1>
         </div>
       </div>
 
@@ -97,7 +116,7 @@ export default async function BlogDetailPage({ params }: Props) {
               {otherPosts.slice(0, 2).map((p) => (
                 <Link key={p.id} href={`/blog/${p.slug}`} className="group flex gap-4 bg-white rounded-xl p-4 border border-gray-100 hover:shadow-md hover:border-primary/20 transition-all">
                   <div className="relative w-20 h-20 rounded-lg overflow-hidden shrink-0 bg-gray-100">
-                    <Image src={p.image} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform" />
+                    <Image src={p.image} alt={`${p.title} related article cover image`} fill className="object-cover group-hover:scale-105 transition-transform" />
                   </div>
                   <div>
                     <p className="text-xs text-gray-400 mb-1">{p.category} · {p.readTime}</p>

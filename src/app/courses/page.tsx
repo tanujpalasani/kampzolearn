@@ -5,8 +5,9 @@ import { courses } from "@/data/courses";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: 'All Courses',
-  description: 'Explore our wide range of affordable online courses for students. Learn coding, marketing, and more.',
+  title: 'Learn Coding Online with Affordable Online Courses | Kampzo Learn',
+  description:
+    'Learn coding online with beginner-friendly programs, practical projects, and affordable online courses designed for students across India.',
 };
 
 export default function CoursesPage() {
@@ -14,9 +15,12 @@ export default function CoursesPage() {
     <div className="min-h-screen bg-gray-50 section-pad">
       <div className="section-shell">
         <div className="text-center mb-16">
-          <h1 className="mb-4 text-3xl font-bold tracking-tight text-dark sm:text-4xl">Our Courses</h1>
+          <h1 className="mb-4 text-3xl font-bold tracking-tight text-dark sm:text-4xl">Learn Coding Online with Beginner-Friendly Courses</h1>
           <p className="mx-auto max-w-2xl text-base text-gray-600 sm:text-lg">
-            Browse through our highly curated, project-based curriculums designed to get you hired.
+            Explore a beginner coding course collection with hands-on assignments, mentor guidance, and affordable online courses built for real outcomes.
+          </p>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-gray-500 sm:text-base">
+            Whether you are starting from scratch or upskilling for placements, these tracks are designed to help you learn coding online at your own pace with clear milestones.
           </p>
         </div>
         
@@ -24,7 +28,7 @@ export default function CoursesPage() {
           {courses.map((course) => (
             <Card key={course.id} className="group flex h-full flex-col bg-white">
               <div className="relative h-48 w-full bg-gray-100 overflow-hidden">
-                 <Image src={course.image} alt={`Cover image for ${course.title}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" priority={course.id === "1"} />
+                  <Image src={course.image} alt={`Beginner coding course and affordable online courses thumbnail for ${course.title}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" priority={course.id === "1"} />
               </div>
               <CardHeader>
                 <CardTitle>{course.title}</CardTitle>

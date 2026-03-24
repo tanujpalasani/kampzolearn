@@ -49,7 +49,7 @@ export default function AboutPage() {
               </Link>
             </div>
             <div className="relative h-72 overflow-hidden rounded-2xl shadow-xl md:h-96">
-              <Image src="/about_team.png" alt="Kampzo Learn team collaborating" fill className="object-cover" />
+              <Image src="/about_team.png" alt="Kampzo Learn mentor team collaborating on online learning programs for students in India" fill className="object-cover" />
             </div>
           </div>
         </div>

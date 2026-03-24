@@ -21,8 +21,8 @@ export const blogs: BlogPost[] = [
     category: "Career",
     readTime: "6 min read",
     content: `
-      <h2>The Future of Work in India</h2>
-      <p>As we step into 2026, the global and local job markets in India are rapidly evolving. The advent of AI and advanced software tools means students must adapt quickly to stay relevant. Companies are no longer just looking for degree holders — they are looking for skilled, adaptable professionals who can deliver real value from day one.</p>
+      <h2>Skills for Students 2026: Why the Future Is Changing Fast</h2>
+      <p>As we step into 2026, demand for <strong>skills for students 2026</strong> is accelerating across every sector. From startups to enterprise teams, employers now prioritize <strong>future skills India</strong> learners can apply immediately in real projects and collaborative environments.</p>
 
       <h2>1. Artificial Intelligence and Machine Learning</h2>
       <p>Understanding how AI works and how to integrate it into daily workflows is no longer optional. It's the new baseline for any knowledge worker. Platforms like Google Gemini, OpenAI, and Hugging Face have made AI tools more accessible than ever.</p>
@@ -55,7 +55,7 @@ export const blogs: BlogPost[] = [
     readTime: "8 min read",
     content: `
       <h2>Why Learn to Code?</h2>
-      <p>Coding is the closest thing we have to a superpower. It allows you to build applications, automate tasks, start businesses from your laptop, and command top salaries anywhere in India or the world. In 2026, coding literacy is as foundational as reading and writing.</p>
+      <p>If you want to <strong>learn coding online</strong>, start with a simple plan and consistent practice. This <strong>beginner coding guide</strong> helps you build confidence from your first line of code to real portfolio projects that employers can evaluate.</p>
 
       <h2>Step 1: Choose the Right Language</h2>
       <p>For absolute beginners, we highly recommend starting with either <strong>Python</strong> or <strong>JavaScript</strong>. Python is praised for its readable, clean syntax that closely mirrors English. JavaScript is essential for building web interfaces and is the most widely used language in the world.</p>

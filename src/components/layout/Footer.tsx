@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/Logo.png" alt="Kampzo Learn Logo" width={32} height={32} className="object-contain grayscale hover:grayscale-0 transition-all duration-300" />
+              <Image src="/Logo.png" alt="Kampzo Learn logo representing affordable online courses in India" width={32} height={32} className="object-contain grayscale hover:grayscale-0 transition-all duration-300" />
               <span className="text-xl font-bold tracking-tight">
                 Kampzo <span className="text-primary">Learn</span>
               </span>

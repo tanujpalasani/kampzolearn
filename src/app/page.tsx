@@ -8,8 +8,9 @@ import { CheckCircle2, Users, BookOpen, Star, Zap, Award, TrendingUp, Clock } fr
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Kampzo Learn | Best Online Learning Platform in India",
-  description: "Kampzo Learn offers affordable, high-quality online courses for students in India. Learn coding, marketing, and essential career skills. Join 10,000+ learners.",
+  title: "Online Learning Platform India | Kampzo Learn",
+  description:
+    "Kampzo Learn is an online learning platform India students trust for the best courses for students, including programs to learn coding online with practical projects.",
 };
 
 const stats = [
@@ -43,17 +44,21 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden bg-dark py-20 text-white md:py-28 lg:py-32">
-        <Image src="/hero_bg.png" alt="Kampzo Learn platform background" fill priority className="object-cover opacity-15 pointer-events-none" />
+        <Image src="/hero_bg.png" alt="Online learning platform India background for students learning coding and digital skills" fill priority className="object-cover opacity-15 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent pointer-events-none" />
         <div className="section-shell relative z-10 flex flex-col items-center text-center">
           <span className="inline-block bg-primary/20 text-primary text-sm font-semibold px-4 py-1.5 rounded-full mb-6 border border-primary/30">
             🚀 India&apos;s Fastest-Growing EdTech Platform
           </span>
           <h1 className="mb-6 text-4xl font-bold leading-tight text-balance sm:text-5xl md:text-6xl lg:text-7xl">
-            Learn Skills That <span className="text-primary">Matter</span>
+            Online Learning Platform India Students Use To <span className="text-primary">Build Real Skills</span>
           </h1>
           <p className="mb-9 max-w-2xl text-base leading-relaxed text-balance text-gray-300 sm:text-lg md:text-xl">
-            Kampzo Learn delivers affordable, industry-ready courses for students across India. Master coding, digital marketing, and the skills that land real jobs.
+            Kampzo Learn helps you access the best courses for students across India, with practical programs to learn coding online, digital marketing, and job-ready technical skills.
+          </p>
+          <p className="mb-9 max-w-2xl text-sm leading-relaxed text-gray-300 sm:text-base">
+            If you are searching for affordable, structured learning paths with mentor-backed support, explore our curated tracks and start progressing from beginner to professional.
+            <Link href="/courses" className="ml-1 font-semibold text-primary hover:underline">Browse courses now</Link>.
           </p>
           <div className="mb-14 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4">
             <Button href="/courses" size="lg" className="w-full sm:w-auto">Explore All Courses</Button>
@@ -85,7 +90,7 @@ export default function Home() {
             {featuredCourses.map((course) => (
               <Card key={course.id} className="group flex flex-col h-full overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 border border-gray-100 bg-white">
                 <div className="relative h-52 w-full bg-gray-100 overflow-hidden">
-                  <Image src={course.image} alt={`${course.title} course`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src={course.image} alt={`${course.title} - learn coding online and career-ready skills`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                   <div className="absolute top-3 left-3 bg-primary text-white text-xs font-semibold px-2.5 py-1 rounded-full">{course.level}</div>
                 </div>
                 <CardHeader className="pb-2">
@@ -174,7 +179,7 @@ export default function Home() {
             {featuredBlogs.map((post) => (
               <Card key={post.id} className="group overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300 border border-gray-100 bg-white flex flex-col">
                 <div className="relative h-56 w-full overflow-hidden bg-gray-100">
-                  <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 50vw" />
+                  <Image src={post.image} alt={`${post.title} - student learning insights from Kampzo Learn`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 50vw" />
                   <div className="absolute top-3 left-3 bg-dark/80 text-white text-xs font-medium px-2.5 py-1 rounded-full backdrop-blur-sm">{post.category}</div>
                 </div>
                 <CardHeader className="pb-2">
