@@ -43,28 +43,28 @@ export default async function CourseDetailPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Course Header */}
-      <section className="bg-dark text-white py-20 pb-24">
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+      <section className="bg-dark pb-24 pt-16 text-white md:pt-20">
+        <div className="section-shell max-w-6xl">
           <div className="mb-4 flex items-center gap-2 text-sm font-medium text-primary">
             <span>{course.level}</span>
             <span>•</span>
             <span>{course.duration}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">{course.title}</h1>
-          <p className="text-xl text-gray-300 max-w-3xl leading-relaxed">{course.shortDescription}</p>
+          <h1 className="mb-6 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">{course.title}</h1>
+          <p className="max-w-3xl text-base leading-relaxed text-gray-300 sm:text-lg md:text-xl">{course.shortDescription}</p>
         </div>
       </section>
 
       {/* Course Content & Enroll CTA */}
-      <section className="py-16 -mt-10 relative z-10">
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <div className="grid gap-12 lg:grid-cols-[1fr_350px]">
+      <section className="relative z-10 -mt-10 py-12 md:py-16">
+        <div className="section-shell max-w-6xl">
+          <div className="grid gap-8 md:gap-10 lg:grid-cols-[1fr_350px] lg:gap-12">
             <div className="space-y-12">
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+              <div className="surface-card p-6 md:p-8">
                 <h2 className="text-2xl font-bold text-dark mb-4">About this course</h2>
                 <p className="text-gray-600 leading-relaxed text-lg">{course.fullDescription}</p>
               </div>
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+              <div className="surface-card p-6 md:p-8">
                 <h2 className="text-2xl font-bold text-dark mb-6">What you will learn</h2>
                 <ul className="grid gap-4 sm:grid-cols-2">
                   {course.whatYouWillLearn.map((item, index) => (
@@ -79,7 +79,7 @@ export default async function CourseDetailPage({ params }: Props) {
 
             {/* Sticky Sidebar */}
             <div className="lg:pl-8">
-              <div className="sticky top-24 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+              <div className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-lg lg:sticky lg:top-24">
                 <div className="relative h-48 w-full">
                   <Image src={course.image} alt={`${course.title} course cover`} fill className="object-cover" priority />
                 </div>

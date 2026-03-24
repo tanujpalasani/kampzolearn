@@ -52,28 +52,28 @@ export default async function BlogDetailPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Cover Image */}
-      <div className="relative h-64 md:h-96 w-full bg-dark overflow-hidden">
+      <div className="relative h-64 w-full overflow-hidden bg-dark md:h-96">
         <Image src={post.image} alt={post.title} fill className="object-cover opacity-60" priority sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10 container mx-auto max-w-3xl">
-          <div className="flex items-center gap-3 text-xs text-gray-300 mb-3">
+        <div className="section-shell absolute bottom-0 left-0 right-0 p-6 md:p-10">
+          <div className="mb-3 flex flex-wrap items-center gap-2 text-xs text-gray-300 md:gap-3">
             <span className="flex items-center gap-1"><Tag className="w-3 h-3" />{post.category}</span>
             <span>·</span>
             <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{post.readTime}</span>
             <span>·</span>
             <span>{post.date}</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight text-balance">{post.title}</h1>
+          <h1 className="text-balance text-3xl font-bold leading-tight text-white md:text-5xl">{post.title}</h1>
         </div>
       </div>
 
       {/* Content */}
-      <article className="container mx-auto px-4 md:px-6 max-w-3xl py-12">
+      <article className="section-shell max-w-3xl py-10 md:py-12">
         <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors mb-8">
           <ArrowLeft className="w-4 h-4" /> Back to Blog
         </Link>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12">
+        <div className="surface-card p-5 sm:p-8 md:p-12">
           <div
             className="prose prose-lg max-w-none prose-headings:text-dark prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-p:text-gray-600 prose-p:leading-relaxed prose-ul:text-gray-600 prose-strong:text-dark"
             dangerouslySetInnerHTML={{ __html: post.content }}
@@ -81,7 +81,7 @@ export default async function BlogDetailPage({ params }: Props) {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 bg-dark text-white rounded-2xl p-8 md:p-10 text-center">
+        <div className="mt-12 rounded-2xl bg-dark p-6 text-center text-white md:p-10">
           <h3 className="text-2xl font-bold mb-3">Ready to Put This Into Practice?</h3>
           <p className="text-gray-400 mb-6">Browse our structured, affordable courses and go from theory to building real projects.</p>
           <Link href="/courses" className="inline-flex items-center justify-center rounded-lg font-semibold transition-colors bg-primary text-white hover:bg-primary-dark h-12 px-10 text-base shadow-md">

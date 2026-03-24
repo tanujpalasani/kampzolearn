@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope, Space_Grotesk } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
-// Using Inter as a clean, modern ed-tech font (matches standard Geist/Inter look)
-const inter = Inter({
+const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
 });
 
 export const metadata: Metadata = {
@@ -53,7 +57,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} antialiased h-full`}>
+    <html lang="en" className={`${manrope.variable} ${spaceGrotesk.variable} antialiased h-full`}>
       <head>
         <script
           type="application/ld+json"

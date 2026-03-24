@@ -4,19 +4,64 @@
 @theme {
   --color-primary: #f97316;
   --color-primary-dark: #ea580c;
-  --color-dark: #0f0f0f;
+  --color-dark: #0b1220;
+  --color-dark-soft: #121b2d;
   --color-light: #ffffff;
-  --color-background: #ffffff;
-  --color-foreground: #0f0f0f;
-  --color-muted: #f8fafc;
-  --color-muted-foreground: #64748b;
+  --color-background: #f7fafc;
+  --color-foreground: #101728;
+  --color-muted: #eef4fb;
+  --color-muted-foreground: #5f6f86;
+  --color-panel: #ffffff;
 }
 
 @layer base {
+  :root {
+    --container-max: 74rem;
+  }
+
+  * {
+    @apply border-gray-200;
+  }
+
   body {
+    font-family: var(--font-sans), sans-serif;
     background-color: var(--color-background);
     color: var(--color-foreground);
-    @apply antialiased selection:bg-primary selection:text-white;
+    background-image:
+      radial-gradient(circle at 0% 0%, rgb(249 115 22 / 0.11), transparent 38%),
+      radial-gradient(circle at 100% 0%, rgb(14 165 233 / 0.08), transparent 34%);
+    @apply antialiased selection:bg-primary selection:text-white min-h-screen;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display), var(--font-sans), sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply text-base;
+  }
+}
+
+@layer components {
+  .section-shell {
+    width: min(var(--container-max), 100% - 2rem);
+    margin-inline: auto;
+  }
+
+  .section-pad {
+    @apply py-14 md:py-20 lg:py-24;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-gray-200/80 bg-white/95 shadow-[0_8px_30px_rgb(15_23_42_/_0.08)] backdrop-blur-sm;
   }
 }
 

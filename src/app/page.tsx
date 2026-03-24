@@ -42,29 +42,29 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
 
       {/* ── HERO ── */}
-      <section className="bg-dark text-white py-28 md:py-36 relative overflow-hidden">
+      <section className="relative overflow-hidden bg-dark py-20 text-white md:py-28 lg:py-32">
         <Image src="/hero_bg.png" alt="Kampzo Learn platform background" fill priority className="object-cover opacity-15 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent pointer-events-none" />
-        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center flex flex-col items-center">
+        <div className="section-shell relative z-10 flex flex-col items-center text-center">
           <span className="inline-block bg-primary/20 text-primary text-sm font-semibold px-4 py-1.5 rounded-full mb-6 border border-primary/30">
             🚀 India&apos;s Fastest-Growing EdTech Platform
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-balance leading-tight">
+          <h1 className="mb-6 text-4xl font-bold leading-tight text-balance sm:text-5xl md:text-6xl lg:text-7xl">
             Learn Skills That <span className="text-primary">Matter</span>
           </h1>
-          <p className="max-w-[680px] text-lg md:text-xl text-gray-300 mb-10 text-balance leading-relaxed">
+          <p className="mb-9 max-w-2xl text-base leading-relaxed text-balance text-gray-300 sm:text-lg md:text-xl">
             Kampzo Learn delivers affordable, industry-ready courses for students across India. Master coding, digital marketing, and the skills that land real jobs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-16">
-            <Button href="/courses" size="lg">Explore All Courses</Button>
+          <div className="mb-14 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4">
+            <Button href="/courses" size="lg" className="w-full sm:w-auto">Explore All Courses</Button>
             <Button href="/about" variant="outline" size="lg" className="border-gray-600 bg-transparent text-white hover:bg-white/10 hover:text-white">
               Learn More About Us
             </Button>
           </div>
           {/* Stats Row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-3xl mt-4 border-t border-white/10 pt-10">
+          <div className="mt-2 grid w-full max-w-4xl grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:gap-6 md:grid-cols-4 md:pt-10">
             {stats.map((s) => (
-              <div key={s.label} className="flex flex-col items-center gap-2">
+              <div key={s.label} className="flex flex-col items-center gap-2 rounded-xl bg-white/5 px-3 py-4">
                 <s.icon className="h-6 w-6 text-primary" />
                 <span className="text-2xl font-bold">{s.value}</span>
                 <span className="text-xs text-gray-400 uppercase tracking-wider">{s.label}</span>
@@ -75,13 +75,13 @@ export default function Home() {
       </section>
 
       {/* ── FEATURED COURSES ── */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="section-pad bg-gray-50">
+        <div className="section-shell">
           <div className="text-center mb-14">
-            <h2 className="text-4xl font-bold tracking-tight text-dark mb-4">Featured Courses</h2>
-            <p className="text-gray-500 max-w-[580px] mx-auto text-lg">Hand-picked, project-based courses built to take you from zero to job-ready.</p>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-dark sm:text-4xl">Featured Courses</h2>
+            <p className="mx-auto max-w-2xl text-base text-gray-500 sm:text-lg">Hand-picked, project-based courses built to take you from zero to job-ready.</p>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featuredCourses.map((course) => (
               <Card key={course.id} className="group flex flex-col h-full overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 border border-gray-100 bg-white">
                 <div className="relative h-52 w-full bg-gray-100 overflow-hidden">
@@ -111,13 +111,13 @@ export default function Home() {
       </section>
 
       {/* ── WHY KAMPZO ── */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="section-pad bg-white">
+        <div className="section-shell">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight text-dark mb-4">Why 10,000+ Students Choose Kampzo</h2>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-dark sm:text-4xl">Why 10,000+ Students Choose Kampzo</h2>
             <p className="text-gray-500 max-w-lg mx-auto">We built this platform with one purpose: get students job-ready, fast.</p>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((f) => (
               <div key={f.title} className="group flex flex-col gap-4 p-8 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-white hover:shadow-lg hover:border-primary/20 transition-all duration-300">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
@@ -132,10 +132,10 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-24 bg-dark text-white">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="section-pad bg-dark text-white">
+        <div className="section-shell">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold tracking-tight mb-4">Real Outcomes, Real Students</h2>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Real Outcomes, Real Students</h2>
             <p className="text-gray-400 max-w-lg mx-auto">Hear directly from learners who transformed their careers with Kampzo Learn.</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
@@ -161,11 +161,11 @@ export default function Home() {
       </section>
 
       {/* ── FEATURED BLOG ── */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex items-end justify-between mb-12">
+      <section className="section-pad bg-gray-50">
+        <div className="section-shell">
+          <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-4xl font-bold tracking-tight text-dark mb-2">From The Blog</h2>
+              <h2 className="mb-2 text-3xl font-bold tracking-tight text-dark sm:text-4xl">From The Blog</h2>
               <p className="text-gray-500">Guides and insights for ambitious learners.</p>
             </div>
             <Link href="/blog" className="text-primary font-semibold hover:underline hidden md:inline">View all articles →</Link>
@@ -203,10 +203,10 @@ export default function Home() {
       </section>
 
       {/* ── CTA BANNER ── */}
-      <section className="py-24 bg-primary">
-        <div className="container mx-auto px-4 md:px-6 text-center text-white">
-          <h2 className="text-4xl font-bold tracking-tight mb-4">Start Learning for Free Today</h2>
-          <p className="text-white/80 text-lg max-w-xl mx-auto mb-8">
+      <section className="section-pad bg-primary">
+        <div className="section-shell text-center text-white">
+          <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">Start Learning for Free Today</h2>
+          <p className="mx-auto mb-8 max-w-xl text-base text-white/80 sm:text-lg">
             Join over 10,000 students who are already mastering the skills of tomorrow. No credit card required to browse.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

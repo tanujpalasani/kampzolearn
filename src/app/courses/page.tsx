@@ -11,18 +11,18 @@ export const metadata: Metadata = {
 
 export default function CoursesPage() {
   return (
-    <div className="bg-gray-50 min-h-screen py-20">
-      <div className="container mx-auto px-4 md:px-6">
+    <div className="min-h-screen bg-gray-50 section-pad">
+      <div className="section-shell">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold tracking-tight text-dark mb-4">Our Courses</h1>
-          <p className="text-lg text-gray-600 max-w-[700px] mx-auto">
+          <h1 className="mb-4 text-3xl font-bold tracking-tight text-dark sm:text-4xl">Our Courses</h1>
+          <p className="mx-auto max-w-2xl text-base text-gray-600 sm:text-lg">
             Browse through our highly curated, project-based curriculums designed to get you hired.
           </p>
         </div>
         
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {courses.map((course) => (
-            <Card key={course.id} className="group flex flex-col h-full bg-white overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border-none">
+            <Card key={course.id} className="group flex h-full flex-col bg-white">
               <div className="relative h-48 w-full bg-gray-100 overflow-hidden">
                  <Image src={course.image} alt={`Cover image for ${course.title}`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" priority={course.id === "1"} />
               </div>

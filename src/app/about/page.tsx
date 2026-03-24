@@ -21,23 +21,23 @@ export default function AboutPage() {
     <div className="bg-white">
 
       {/* Hero */}
-      <section className="bg-dark py-24 text-white relative overflow-hidden">
+      <section className="relative overflow-hidden bg-dark py-16 text-white md:py-24">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-transparent pointer-events-none" />
-        <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">About Kampzo Learn</h1>
-          <p className="max-w-[680px] mx-auto text-lg text-gray-400 leading-relaxed">
+        <div className="section-shell relative z-10 text-center">
+          <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">About Kampzo Learn</h1>
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-400 sm:text-lg">
             We are a team of engineers, marketers, and educators who believe every student in India deserves access to world-class tech education at a fraction of the typical cost.
           </p>
         </div>
       </section>
 
       {/* Mission */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="section-pad">
+        <div className="section-shell max-w-6xl">
+          <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
             <div>
               <p className="text-primary font-semibold uppercase tracking-widest text-sm mb-3">Our Story</p>
-              <h2 className="text-4xl font-bold text-dark mb-6 leading-tight">Built by Students, For Students</h2>
+              <h2 className="mb-6 text-3xl font-bold leading-tight text-dark sm:text-4xl">Built by Students, For Students</h2>
               <p className="text-gray-600 leading-relaxed mb-5">
                 Kampzo Learn was founded in 2024 by a group of engineers frustrated with the gap between college education and what the industry actually demands. We had learned the hard way — through months of self-study, YouTube videos, and expensive bootcamps — and decided to fix the problem.
               </p>
@@ -48,7 +48,7 @@ export default function AboutPage() {
                 See Our Courses →
               </Link>
             </div>
-            <div className="relative h-72 md:h-96 rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative h-72 overflow-hidden rounded-2xl shadow-xl md:h-96">
               <Image src="/about_team.png" alt="Kampzo Learn team collaborating" fill className="object-cover" />
             </div>
           </div>
@@ -56,15 +56,15 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="section-pad bg-gray-50">
+        <div className="section-shell">
           <div className="text-center mb-14">
-            <h2 className="text-4xl font-bold text-dark mb-4">Our Core Values</h2>
+            <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl">Our Core Values</h2>
             <p className="text-gray-500 max-w-lg mx-auto">The principles that guide every product decision we make.</p>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
-              <div key={v.title} className="group flex flex-col gap-4 p-8 rounded-2xl bg-white border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+              <div key={v.title} className="group flex flex-col gap-4 rounded-2xl border border-gray-100 bg-white p-6 transition-all duration-300 hover:border-primary/20 hover:shadow-lg md:p-8">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
                   <v.icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
                 </div>
@@ -77,19 +77,19 @@ export default function AboutPage() {
       </section>
 
       {/* By the numbers */}
-      <section className="py-20 bg-dark text-white">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="section-pad bg-dark text-white">
+        <div className="section-shell">
           <div className="text-center mb-14">
-            <h2 className="text-4xl font-bold mb-4">Kampzo By The Numbers</h2>
+            <h2 className="mb-4 text-3xl font-bold sm:text-4xl">Kampzo By The Numbers</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 gap-4 text-center md:grid-cols-4 md:gap-8">
             {[
               { value: "10,000+", label: "Active Learners" },
               { value: "50+", label: "Expert-Led Courses" },
               { value: "92%", label: "Completion Rate" },
               { value: "4.8★", label: "Average Rating" },
             ].map((s) => (
-              <div key={s.label} className="flex flex-col gap-2">
+              <div key={s.label} className="flex flex-col gap-2 rounded-xl bg-white/5 px-3 py-4">
                 <span className="text-4xl font-bold text-primary">{s.value}</span>
                 <span className="text-gray-400 text-sm uppercase tracking-wider">{s.label}</span>
               </div>
@@ -99,9 +99,9 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 text-center">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-4xl font-bold text-dark mb-4">Join Our Growing Community</h2>
+      <section className="section-pad text-center">
+        <div className="section-shell">
+          <h2 className="mb-4 text-3xl font-bold text-dark sm:text-4xl">Join Our Growing Community</h2>
           <p className="text-gray-500 max-w-lg mx-auto mb-8">10,000+ students can&apos;t be wrong. Start your free learning journey today.</p>
           <Link href="/courses" className="inline-flex items-center justify-center rounded-md font-semibold transition-colors bg-primary text-white hover:bg-primary-dark h-12 px-10 text-lg shadow-lg">
             Explore Courses
