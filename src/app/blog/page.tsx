@@ -10,6 +10,14 @@ export const metadata: Metadata = {
   title: 'Free Coding Courses Insights and Skills for Students 2026 | Kampzo Learn',
   description:
     'Explore free coding courses guidance, practical tutorials, and skills for students 2026 to help learners build real-world career readiness.',
+  alternates: { canonical: '/blog' },
+  openGraph: {
+    title: 'Free Coding Courses Insights and Skills for Students 2026 | Kampzo Learn',
+    description:
+      'Student-focused coding insights, career roadmaps, and practical learning guides for 2026.',
+    url: '/blog',
+    type: 'website',
+  },
 };
 
 export default function BlogPage() {

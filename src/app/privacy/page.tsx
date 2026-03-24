@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   description:
     "Read the Kampzo Learn privacy policy to understand how we collect, use, and protect your data.",
   alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "Privacy Policy | Kampzo Learn",
+    description:
+      "Understand how Kampzo Learn collects, uses, and protects learner information.",
+    url: "/privacy",
+    type: "website",
+  },
 };
 
 export default function PrivacyPolicyPage() {

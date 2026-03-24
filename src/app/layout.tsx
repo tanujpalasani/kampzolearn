@@ -16,7 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://kampzolearn.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "https://kampzolearn.vercel.app"),
   title: {
     default: "Kampzo Learn | Best Online Learning Platform in India",
     template: "%s | Kampzo Learn",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   alternates: {
-    canonical: "./",
+    canonical: "/",
   },
 };
 

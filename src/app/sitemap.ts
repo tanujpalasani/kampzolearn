@@ -3,7 +3,7 @@ import { courses } from '@/data/courses';
 import { blogs } from '@/data/blogs';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://kampzolearn.com';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://kampzolearn.vercel.app';
 
   const staticRoutes = [
     {

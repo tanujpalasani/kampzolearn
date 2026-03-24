@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   title: "Online Learning Platform India | Kampzo Learn",
   description:
     "Kampzo Learn is an online learning platform India students trust for the best courses for students, including programs to learn coding online with practical projects.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Online Learning Platform India | Kampzo Learn",
+    description:
+      "Kampzo Learn is an online learning platform India students trust for the best courses for students and coding-focused career growth.",
+    url: "/",
+    type: "website",
+  },
 };
 
 const stats = [

@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   title: 'About Us',
   description: 'Learn about Kampzo Learn — our mission, story, and the team empowering students across India with affordable, quality education.',
   alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Kampzo Learn',
+    description:
+      'Meet Kampzo Learn and discover our mission to make quality online education accessible for students in India.',
+    url: '/about',
+    type: 'website',
+  },
 };
 
 const values = [

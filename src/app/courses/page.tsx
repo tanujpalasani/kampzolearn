@@ -9,6 +9,14 @@ export const metadata: Metadata = {
   title: 'Learn Coding Online with Affordable Online Courses | Kampzo Learn',
   description:
     'Learn coding online with beginner-friendly programs, practical projects, and affordable online courses designed for students across India.',
+  alternates: { canonical: '/courses' },
+  openGraph: {
+    title: 'Learn Coding Online with Affordable Online Courses | Kampzo Learn',
+    description:
+      'Beginner-friendly and affordable online courses for students in India with practical, project-based learning tracks.',
+    url: '/courses',
+    type: 'website',
+  },
 };
 
 export default function CoursesPage() {

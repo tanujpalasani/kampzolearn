@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   title: 'Contact Us',
   description: 'Get in touch with the Kampzo Learn team for course queries, partnership opportunities, or general support.',
   alternates: { canonical: '/contact' },
+  openGraph: {
+    title: 'Contact Kampzo Learn',
+    description:
+      'Reach out to Kampzo Learn for support, partnerships, and student course guidance in India.',
+    url: '/contact',
+    type: 'website',
+  },
 };
 
 const contactDetails = [
