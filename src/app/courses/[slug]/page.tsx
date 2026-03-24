@@ -1,0 +1,117 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { courses } from '@/data/courses';
+import { Button } from '@/components/ui/Button';
+import { CheckCircle } from 'lucide-react';
+import Image from 'next/image';
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateStaticParams() {
+  return courses.map((c) => ({ slug: c.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const course = courses.find((c) => c.slug === slug);
+  if (!course) return { title: 'Course Not Found' };
+  return {
+    title: course.title,
+    description: course.shortDescription,
+    alternates: { canonical: `/courses/${course.slug}` },
+    openGraph: { title: course.title, description: course.shortDescription, type: 'website' },
+  };
+}
+
+export default async function CourseDetailPage({ params }: Props) {
+  const { slug } = await params;
+  const course = courses.find((c) => c.slug === slug);
+  if (!course) notFound();
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: course.title,
+    description: course.shortDescription,
+    provider: { '@type': 'Organization', name: 'Kampzo Learn', sameAs: 'https://kampzolearn.com' },
+  };
+
+  return (
+    <div className="bg-white min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+      {/* Course Header */}
+      <section className="bg-dark text-white py-20 pb-24">
+        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+          <div className="mb-4 flex items-center gap-2 text-sm font-medium text-primary">
+            <span>{course.level}</span>
+            <span>•</span>
+            <span>{course.duration}</span>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">{course.title}</h1>
+          <p className="text-xl text-gray-300 max-w-3xl leading-relaxed">{course.shortDescription}</p>
+        </div>
+      </section>
+
+      {/* Course Content & Enroll CTA */}
+      <section className="py-16 -mt-10 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+          <div className="grid gap-12 lg:grid-cols-[1fr_350px]">
+            <div className="space-y-12">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+                <h2 className="text-2xl font-bold text-dark mb-4">About this course</h2>
+                <p className="text-gray-600 leading-relaxed text-lg">{course.fullDescription}</p>
+              </div>
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+                <h2 className="text-2xl font-bold text-dark mb-6">What you will learn</h2>
+                <ul className="grid gap-4 sm:grid-cols-2">
+                  {course.whatYouWillLearn.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="w-6 h-6 text-primary shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Sticky Sidebar */}
+            <div className="lg:pl-8">
+              <div className="sticky top-24 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+                <div className="relative h-48 w-full">
+                  <Image src={course.image} alt={`${course.title} course cover`} fill className="object-cover" priority />
+                </div>
+                <div className="p-6">
+                  <div className="text-3xl font-bold text-dark mb-6">{course.price}</div>
+                  <div className="space-y-4 mb-6 text-sm text-gray-600">
+                    <div className="flex justify-between border-b border-gray-100 pb-2">
+                      <span>Duration</span>
+                      <span className="font-medium text-dark">{course.duration}</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-100 pb-2">
+                      <span>Skill Level</span>
+                      <span className="font-medium text-dark">{course.level}</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-100 pb-2">
+                      <span>Access</span>
+                      <span className="font-medium text-dark">Lifetime</span>
+                    </div>
+                  </div>
+                  <Button
+                    className="w-full h-12 text-lg font-semibold shadow-sm"
+                    gaEvent={{ event: 'button_clicked', value: `enroll_now_${course.slug}` }}
+                  >
+                    Enroll Now
+                  </Button>
+                  <p className="text-center text-xs text-gray-400 mt-4">30-day money-back guarantee</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -1,0 +1,225 @@
+import type { Metadata } from "next";
+import { Button } from "@/components/ui/Button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card";
+import { courses } from "@/data/courses";
+import { blogs } from "@/data/blogs";
+import Link from "next/link";
+import { CheckCircle2, Users, BookOpen, Star, Zap, Award, TrendingUp, Clock } from "lucide-react";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Kampzo Learn | Best Online Learning Platform in India",
+  description: "Kampzo Learn offers affordable, high-quality online courses for students in India. Learn coding, marketing, and essential career skills. Join 10,000+ learners.",
+};
+
+const stats = [
+  { label: "Active Learners", value: "10,000+", icon: Users },
+  { label: "Courses Available", value: "50+", icon: BookOpen },
+  { label: "Average Rating", value: "4.8 / 5", icon: Star },
+  { label: "Completion Rate", value: "92%", icon: TrendingUp },
+];
+
+const features = [
+  { icon: Zap, title: "Industry Curriculums", desc: "No outdated textbooks. Learn exactly what tech companies demand in 2026." },
+  { icon: Award, title: "Affordable Pricing", desc: "Quality education is a right. Highly competitive pricing tailored for Indian students." },
+  { icon: CheckCircle2, title: "Project-Based Learning", desc: "Build real-world applications in every course — not just watch videos." },
+  { icon: Clock, title: "Learn at Your Pace", desc: "Lifetime access to all course material. Study whenever, wherever suits you best." },
+  { icon: Users, title: "Expert Mentors", desc: "Learn from instructors who work at top product companies like Google, Microsoft, and more." },
+  { icon: TrendingUp, title: "Career Support", desc: "Resume reviews, LinkedIn optimization, and mock interview preparation." },
+];
+
+const testimonials = [
+  { name: "Rahul Sharma", role: "Frontend Developer @ Flipkart", quote: "Kampzo Learn's Next.js course was a game-changer. The projects were real and the content was sharp. I got my first job within 3 months of completing it.", avatar: "/about_team.png" },
+  { name: "Priya Nair", role: "Digital Marketer @ Zoho", quote: "The Digital Marketing course covered everything from Google Ads to content strategy. I now run campaigns with an ROI of over 400%. Worth every rupee.", avatar: "/about_team.png" },
+  { name: "Arjun Mehta", role: "Backend Engineer @ Razorpay", quote: "The DSA course prepared me better than any college course. The way they explain Dynamic Programming with visual examples is unmatched.", avatar: "/about_team.png" },
+];
+
+export default function Home() {
+  const featuredCourses = courses.slice(0, 3);
+  const featuredBlogs = blogs.slice(0, 2);
+
+  return (
+    <div className="flex flex-col min-h-screen">
+
+      {/* ── HERO ── */}
+      <section className="bg-dark text-white py-28 md:py-36 relative overflow-hidden">
+        <Image src="/hero_bg.png" alt="Kampzo Learn platform background" fill priority className="object-cover opacity-15 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent pointer-events-none" />
+        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center flex flex-col items-center">
+          <span className="inline-block bg-primary/20 text-primary text-sm font-semibold px-4 py-1.5 rounded-full mb-6 border border-primary/30">
+            🚀 India&apos;s Fastest-Growing EdTech Platform
+          </span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-balance leading-tight">
+            Learn Skills That <span className="text-primary">Matter</span>
+          </h1>
+          <p className="max-w-[680px] text-lg md:text-xl text-gray-300 mb-10 text-balance leading-relaxed">
+            Kampzo Learn delivers affordable, industry-ready courses for students across India. Master coding, digital marketing, and the skills that land real jobs.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <Button href="/courses" size="lg">Explore All Courses</Button>
+            <Button href="/about" variant="outline" size="lg" className="border-gray-600 bg-transparent text-white hover:bg-white/10 hover:text-white">
+              Learn More About Us
+            </Button>
+          </div>
+          {/* Stats Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-3xl mt-4 border-t border-white/10 pt-10">
+            {stats.map((s) => (
+              <div key={s.label} className="flex flex-col items-center gap-2">
+                <s.icon className="h-6 w-6 text-primary" />
+                <span className="text-2xl font-bold">{s.value}</span>
+                <span className="text-xs text-gray-400 uppercase tracking-wider">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURED COURSES ── */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-bold tracking-tight text-dark mb-4">Featured Courses</h2>
+            <p className="text-gray-500 max-w-[580px] mx-auto text-lg">Hand-picked, project-based courses built to take you from zero to job-ready.</p>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredCourses.map((course) => (
+              <Card key={course.id} className="group flex flex-col h-full overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 border border-gray-100 bg-white">
+                <div className="relative h-52 w-full bg-gray-100 overflow-hidden">
+                  <Image src={course.image} alt={`${course.title} course`} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
+                  <div className="absolute top-3 left-3 bg-primary text-white text-xs font-semibold px-2.5 py-1 rounded-full">{course.level}</div>
+                </div>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-xl leading-tight">{course.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-1 pt-0">
+                  <p className="text-gray-500 text-sm mb-4 leading-relaxed">{course.shortDescription}</p>
+                  <div className="flex items-center justify-between text-sm font-medium">
+                    <span className="text-primary text-xl font-bold">{course.price}</span>
+                    <span className="text-gray-400 flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{course.duration}</span>
+                  </div>
+                </CardContent>
+                <CardFooter className="pt-0">
+                  <Button href={`/courses/${course.slug}`} className="w-full">View Course →</Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Button href="/courses" variant="outline" size="lg">Browse All {courses.length} Courses</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY KAMPZO ── */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold tracking-tight text-dark mb-4">Why 10,000+ Students Choose Kampzo</h2>
+            <p className="text-gray-500 max-w-lg mx-auto">We built this platform with one purpose: get students job-ready, fast.</p>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((f) => (
+              <div key={f.title} className="group flex flex-col gap-4 p-8 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-white hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                  <f.icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-lg font-bold text-dark">{f.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIALS ── */}
+      <section className="py-24 bg-dark text-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold tracking-tight mb-4">Real Outcomes, Real Students</h2>
+            <p className="text-gray-400 max-w-lg mx-auto">Hear directly from learners who transformed their careers with Kampzo Learn.</p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {testimonials.map((t, i) => (
+              <div key={i} className="flex flex-col gap-6 p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/40 hover:bg-white/10 transition-all duration-300">
+                <div className="flex gap-1">
+                  {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 fill-primary text-primary" />)}
+                </div>
+                <p className="italic text-gray-300 leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
+                <div className="flex items-center gap-3 border-t border-white/10 pt-4">
+                  <div className="w-10 h-10 rounded-full bg-primary/30 flex items-center justify-center text-primary font-bold text-sm shrink-0">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-sm">{t.name}</p>
+                    <p className="text-xs text-gray-400">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FEATURED BLOG ── */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <h2 className="text-4xl font-bold tracking-tight text-dark mb-2">From The Blog</h2>
+              <p className="text-gray-500">Guides and insights for ambitious learners.</p>
+            </div>
+            <Link href="/blog" className="text-primary font-semibold hover:underline hidden md:inline">View all articles →</Link>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2">
+            {featuredBlogs.map((post) => (
+              <Card key={post.id} className="group overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-300 border border-gray-100 bg-white flex flex-col">
+                <div className="relative h-56 w-full overflow-hidden bg-gray-100">
+                  <Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="(max-width: 768px) 100vw, 50vw" />
+                  <div className="absolute top-3 left-3 bg-dark/80 text-white text-xs font-medium px-2.5 py-1 rounded-full backdrop-blur-sm">{post.category}</div>
+                </div>
+                <CardHeader className="pb-2">
+                  <div className="flex items-center gap-3 text-xs text-gray-400 mb-2">
+                    <span>{post.date}</span>
+                    <span>·</span>
+                    <span>{post.readTime}</span>
+                  </div>
+                  <CardTitle className="text-xl leading-snug">{post.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-1 pt-0">
+                  <p className="text-gray-500 text-sm leading-relaxed">{post.preview}</p>
+                </CardContent>
+                <CardFooter className="pt-0">
+                  <Button href={`/blog/${post.slug}`} variant="outline" className="group/btn">
+                    Read Article <span className="ml-1 group-hover/btn:translate-x-1 transition-transform inline-block">→</span>
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+          <div className="mt-8 text-center md:hidden">
+            <Link href="/blog" className="text-primary font-semibold hover:underline">View all articles →</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA BANNER ── */}
+      <section className="py-24 bg-primary">
+        <div className="container mx-auto px-4 md:px-6 text-center text-white">
+          <h2 className="text-4xl font-bold tracking-tight mb-4">Start Learning for Free Today</h2>
+          <p className="text-white/80 text-lg max-w-xl mx-auto mb-8">
+            Join over 10,000 students who are already mastering the skills of tomorrow. No credit card required to browse.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button href="/courses" variant="secondary" size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold shadow-lg">
+              Browse All Courses
+            </Button>
+            <Button href="/contact" variant="ghost" size="lg" className="text-white border border-white/40 hover:bg-white/10">
+              Talk to Us
+            </Button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}
