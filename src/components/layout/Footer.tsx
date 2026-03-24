@@ -1,7 +1,35 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Camera, Play, Users, MessageCircle } from "lucide-react";
 
 export default function Footer() {
+  const socialLinks = [
+    {
+      href: "https://www.instagram.com/kampzolearn/",
+      label: "Instagram",
+      icon: Camera,
+      className: "hover:bg-pink-500/20 hover:text-pink-300",
+    },
+    {
+      href: "https://www.youtube.com/channel/UCtA6Rd7Zyu7HuUe0Bpl_2sw",
+      label: "YouTube",
+      icon: Play,
+      className: "hover:bg-red-500/20 hover:text-red-300",
+    },
+    {
+      href: "https://www.facebook.com/profile.php?id=61577422469903",
+      label: "Facebook",
+      icon: Users,
+      className: "hover:bg-blue-500/20 hover:text-blue-300",
+    },
+    {
+      href: "https://whatsapp.com/channel/0029Vb6vEMu5q08j5jXfTq1K",
+      label: "WhatsApp Channel",
+      icon: MessageCircle,
+      className: "hover:bg-green-500/20 hover:text-green-300",
+    },
+  ];
+
   return (
     <footer className="mt-16 border-t border-white/10 bg-dark text-white">
       <div className="section-shell py-12 md:py-16">
@@ -16,13 +44,23 @@ export default function Footer() {
             <p className="max-w-sm text-sm text-gray-400 text-balance">
               The premium, affordable online learning platform for students in India. Master coding, digital marketing, and more with expert-led content.
             </p>
-            <div className="flex space-x-4">
-              <Link href="https://x.com" className="text-gray-400 hover:text-primary transition-colors" target="_blank" rel="noreferrer">
-                Twitter
-              </Link>
-              <Link href="https://github.com/tanujpalasani/kampzo_learn" className="text-gray-400 hover:text-primary transition-colors" target="_blank" rel="noreferrer">
-                GitHub
-              </Link>
+            <div className="flex flex-wrap items-center gap-3">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <Link
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={social.label}
+                    title={social.label}
+                    className={`inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-gray-300 transition-all duration-200 hover:-translate-y-0.5 ${social.className}`}
+                  >
+                    <Icon className="h-4 w-4" />
+                  </Link>
+                );
+              })}
             </div>
           </div>
           <div>
