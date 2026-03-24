@@ -1,31 +1,31 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Camera, Play, Users, MessageCircle } from "lucide-react";
+import { FaInstagram, FaYoutube, FaFacebookF, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   const socialLinks = [
     {
       href: "https://www.instagram.com/kampzolearn/",
       label: "Instagram",
-      icon: Camera,
+      icon: FaInstagram,
       className: "hover:bg-pink-500/20 hover:text-pink-300",
     },
     {
       href: "https://www.youtube.com/channel/UCtA6Rd7Zyu7HuUe0Bpl_2sw",
       label: "YouTube",
-      icon: Play,
+      icon: FaYoutube,
       className: "hover:bg-red-500/20 hover:text-red-300",
     },
     {
       href: "https://www.facebook.com/profile.php?id=61577422469903",
       label: "Facebook",
-      icon: Users,
+      icon: FaFacebookF,
       className: "hover:bg-blue-500/20 hover:text-blue-300",
     },
     {
       href: "https://whatsapp.com/channel/0029Vb6vEMu5q08j5jXfTq1K",
       label: "WhatsApp Channel",
-      icon: MessageCircle,
+      icon: FaWhatsapp,
       className: "hover:bg-green-500/20 hover:text-green-300",
     },
   ];
