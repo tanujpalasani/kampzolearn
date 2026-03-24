@@ -41,8 +41,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -68,7 +66,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
-        {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+        <GoogleAnalytics gaId="G-9DLQD82BNC" />
       </body>
     </html>
   );
