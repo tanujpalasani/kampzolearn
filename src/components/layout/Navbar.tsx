@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const navItems = [
@@ -19,6 +19,14 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const currentPath = useMemo(() => pathname ?? "/", [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileOpen]);
 
   const isActive = (href: string) => {
     if (href === "/") return currentPath === "/";
@@ -72,10 +80,10 @@ export default function Navbar() {
       <div
         id="mobile-menu"
         className={`md:hidden overflow-hidden border-t border-white/10 bg-dark-soft transition-[max-height,opacity] duration-300 ${
-          isMobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          isMobileOpen ? "max-h-[calc(100vh-4rem)] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <nav className="section-shell py-4">
+        <nav className="section-shell max-h-[calc(100vh-4rem)] overflow-y-auto py-4">
           <div className="grid gap-2">
             {navItems.map((item) => (
               <Link

@@ -17,7 +17,7 @@ export function CardHeader({ className = "", children }: CardProps) {
 
 export function CardTitle({ className = "", children }: CardProps) {
   // Using typical clean edtech typography
-  return <h3 className={`text-xl font-semibold leading-none tracking-tight text-dark ${className}`}>{children}</h3>;
+  return <h3 className={`text-xl font-semibold leading-snug tracking-tight text-dark ${className}`}>{children}</h3>;
 }
 
 export function CardContent({ className = "", children }: CardProps) {

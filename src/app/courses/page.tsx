@@ -31,9 +31,12 @@ export default function CoursesPage() {
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-gray-500 sm:text-base">
             Whether you are starting from scratch or upskilling for placements, these tracks are designed to help you learn coding online at your own pace with clear milestones.
           </p>
+          <div className="mt-8">
+            <Button href="#courses-grid" size="lg">Explore Courses</Button>
+          </div>
         </div>
         
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div id="courses-grid" className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {courses.map((course) => (
             <Card key={course.id} className="group flex h-full flex-col bg-white">
               <div className="relative h-48 w-full bg-gray-100 overflow-hidden">
